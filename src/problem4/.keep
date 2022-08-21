@@ -1,0 +1,14 @@
+const { ethers } = require('ethers')
+
+const INFURA_ID = '1876343d62704c88a008af61c71e8b54'
+const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${INFURA_ID}`)
+
+// const address = '0x123d475e13aa54a43a7421d94caa4459da021c77'
+const address = '0x0020c5222a24e4a96b720c06b803fb8d34adc0af'
+
+const main = async () => {
+    const balance = await provider.getBalance(address)
+    console.log(`\nETH Balance of ${address} --> ${ethers.utils.formatEther(balance)} ETH\n`)
+}
+
+main()

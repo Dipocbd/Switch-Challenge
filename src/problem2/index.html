@@ -1,29 +1,60 @@
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fancy Form</title>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fancy Form</title>
+    <!-- You may add more stuff here -->
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-  <!-- You may add more stuff here -->
-  <link href="style.css" rel="stylesheet" />
-</head>
+  <body>
+    <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
 
-<body>
+    <div class="container">
+      <div class="header">
+        <h2>Hi, welcome</h2>
+        <span style="font-size: 0.75em">Please fill the correct details.</span>
+      </div>
+      
+      <form onsubmit="return !1" id="form" class="form">
+        <div class="form-control">
+          <label for="input-address">ETH Address</label>
+          <input id="input-address" />
+          <small>Error message</small>
+        </div>
 
-  <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
-  <form onsubmit="return !1">
-    <label for="input-address">ETH Address</label>
-    <input id="input-address" />
+        <div class="form-control">
+          <label for="input-amount">Amount to send</label>
+          <input id="input-amount" />
+          <small>Error message</small>
+        </div>
 
-    <label for="input-amount">Amount to send</label>
-    <input id="input-amount" />
+        <div class="form-control">
+          <label for="input-otp">OTP Authentication</label>
+          <input type="number" id="input-otp" />
+          <small>Error message</small>
+        </div>
 
-    <label for="input-otp">OTP Authentication</label>
-    <input type="number" id="input-otp" />
+        <button id="show-modal" type="submit">SEND TOKENS</button>
+      </form>
+    </div>
 
-    <button>SEND TOKENS</button>
-  </form>
-  <script src="script.js"></script>
-</body>
 
+    <!-- Modal section -->
+    <div class="overlay overlay--hidden"></div>
+    <div class="modal modal--hidden">
+      <div class="modal__contents">
+        <div class="modal__close-bar">
+          <span style="font-size: 1.25em; font-weight: 600">X</span>
+        </div>
+        <p style="font-weight: 600; font-size: 1.75em">
+          Eth succcessfully sent ✅ 💸
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
 </html>
+
